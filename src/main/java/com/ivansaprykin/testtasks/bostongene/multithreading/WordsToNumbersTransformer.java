@@ -1,12 +1,13 @@
 package com.ivansaprykin.testtasks.bostongene.multithreading;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Собираем цисло по частям: сначала тысячи, затем сотни, затем десятки и единицы.
- * Получив значения по одной части, удаляем ее описание из строки, и передаем строку с описанием числа далее.
- * К концу получим пустутю строку, описывающую число и полностью ей соответствующее натуральное число.
+ * Получив числовое значения по одной части, удаляем ее описание из строки, и передаем строку с описанием числа далее.
+ * К концу строка, описывающая число, будет пустой, и мы получим полностью ей соответствующее натуральное число.
  *
  * Строка, поступающая на вход считается валидной.
  */
@@ -26,21 +27,25 @@ class WordsToNumbersTransformer {
     public WordsToNumbersTransformer() {
 
         digitsMap = new HashMap<>();
-        for(int digitValue = 1, i = 0; i < DIGITS.length; i++, digitValue++)
-            digitsMap.put(DIGITS[i], digitValue);
+        int digitValue = 1;
+        for(String digit: DIGITS)
+            digitsMap.put(digit, digitValue++);
 
         teensMap = new HashMap<>();
-        for(int teenValue = 10, i = 0; i < TEENS.length; i++, teenValue++)
-            teensMap.put(TEENS[i], teenValue);
+        int teenValue = 10;
+        for(String teens: TEENS)
+            teensMap.put(teens, teenValue++);
 
         tensMap = new HashMap<>();
-        for(int tenValue = 20, i = 0; i < TENS.length; i++, tenValue += 10)  //TODO refactor this
-            tensMap.put(TENS[i], tenValue);
+        int tensValue = 10;
+        for(String tens: TENS)
+            tensMap.put(tens, tensValue+=10);
 
     }
 
     public Numeral createNumberFromWords(String wordsString) {
-        return addLessThanHundredValuePart(addHundredPart(addThousandPart(new Numeral(wordsString, 0))));
+        int number = addLessThanHundredValuePart(addHundredPart(addThousandPart(new Numeral(wordsString, 0)))) .getNumber();
+        return new Numeral(wordsString, number);
     }
 
     private Numeral addThousandPart(Numeral number) {
