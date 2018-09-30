@@ -36,7 +36,7 @@ public class Main {
                             Collections.sort(memory);
                         }
                     } else {
-                        System.out.print("Incorrect input!" + rulesForUser + "\n"); //println() - бликуриующий, print() - нет
+                        System.out.print("Incorrect input! " + userInput + '\n' + rulesForUser + '\n'); //println() - бликуриующий, print() - нет
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
