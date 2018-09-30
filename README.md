@@ -1,4 +1,3 @@
-# task1-multithreading
 
 #### Скачать приложение:  
 >$ git clone https://github.com/ivansaprykin/task1-multithreading.git  
