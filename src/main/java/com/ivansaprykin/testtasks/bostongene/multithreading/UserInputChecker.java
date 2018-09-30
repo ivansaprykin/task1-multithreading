@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
  */
 class UserInputChecker {
 
-    private static final String ZERO = "zero";
+    //private static final String ZERO = "zero";
     private static final String DIGIT_PATTERN = "(one|two|three|four|five|six|seven|eight|nine)";
     private static final String TEENS_PATTERN = "(ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen)";
     private static final String TENS_PATTERN = "(twenty|thirty|forty|fifty|sixty|seventy|eighty|eight|ninety)";
@@ -33,10 +33,10 @@ class UserInputChecker {
     private static final String THOUSANDS_AND_HUNDREDS_PATTERN =
             "(" + DIGIT_PATTERN + "\\s" + THOUSAND + "\\s*(\\s" + DIGIT_PATTERN + "\\s" + HUNDRED + "\\s*)?)" ;
     private static final String ONE_TO_NINETY_NINE =
-            "((" + DIGIT_PATTERN +"|"+ TEENS_PATTERN + "|" + TENS_PATTERN + ")|(" + TENS_PATTERN + "\\s" + DIGIT_PATTERN + "))";
+            "((" + DIGIT_PATTERN +"|"+ TEENS_PATTERN + "|" + TENS_PATTERN + ")|(" + TENS_PATTERN + "\\s" + DIGIT_PATTERN + "))?";
     private static final String HUNDREDS_PATTERN = "(" + ONE_TO_NINETY_NINE + "\\s" + HUNDRED + "\\s*)";
-    private static final String ZERO_TO_NINETY_NINE = "(" + ONE_TO_NINETY_NINE + "|" + ZERO+ ")?";
-    private static final String INPUT_PATTERN = "(" + THOUSANDS_AND_HUNDREDS_PATTERN + "|" + HUNDREDS_PATTERN + ")?"+ ZERO_TO_NINETY_NINE ;
+    //private static final String ZERO_TO_NINETY_NINE = "(" + ONE_TO_NINETY_NINE +  "|" + ZERO+")?";
+    private static final String INPUT_PATTERN = "(" + THOUSANDS_AND_HUNDREDS_PATTERN + "|" + HUNDREDS_PATTERN + ")?"+ ONE_TO_NINETY_NINE ;
 
 
     public boolean isCorrect(String userInput) {

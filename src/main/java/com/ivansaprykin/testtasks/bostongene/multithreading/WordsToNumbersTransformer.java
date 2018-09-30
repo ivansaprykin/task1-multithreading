@@ -13,7 +13,7 @@ import java.util.Map;
  */
 class WordsToNumbersTransformer {
 
-    private static final String ZERO = "zero";
+    //private static final String ZERO = "zero";
     private static final String[] DIGITS = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     private static final String[] TENS = {"twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
     private static final String[] TEENS = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
@@ -104,9 +104,10 @@ class WordsToNumbersTransformer {
 
     private int transformOneWordNumber(String numberDescr) {
 
-        if(ZERO.equals(numberDescr)) {
+        /*if(ZERO.equals(numberDescr)) {
             return 0;
-        } else if(digitsMap.containsKey(numberDescr)) {
+        } else*/
+        if(digitsMap.containsKey(numberDescr)) {
             return digitsMap.get(numberDescr);
         } else if(teensMap.containsKey(numberDescr)) {
             return teensMap.get(numberDescr);
